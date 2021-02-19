@@ -50,75 +50,75 @@
   3 → [4] <br>
   4 → [0] <br>
 
-  ## Graph의 순회
-  ### 1. DFS 깊이 우선 탐색 (Depth First Search)
-  - 현재 정점에서 갈 수 있는 정점으로 들어가 계속해서 탐색하고 들어갔던 정점에서의 탐색이 종료되면 (leaf node 와 만나면), 나머지 정점을 탐색한다.
-  - 방문체크를 할 배열이 필요하고 보통 재귀함수로 구현한다.
+## Graph의 순회
+### 1. DFS 깊이 우선 탐색 (Depth First Search)
+- 현재 정점에서 갈 수 있는 정점으로 들어가 계속해서 탐색하고 들어갔던 정점에서의 탐색이 종료되면 (leaf node 와 만나면), 나머지 정점을 탐색한다.
+- 방문체크를 할 배열이 필요하고 보통 재귀함수로 구현한다.
 
-  - 인접 리스트로 구현
-  ```
-  void dfs(int x) {
-    checked[x] = true;
-    cout << x << ' ';
-    for (int next : v[x]) {
+- 인접 리스트로 구현
+```
+void dfs(int x) {
+  checked[x] = true;
+  cout << x << ' ';
+  for (int next : v[x]) {
+    if (checked[next]) continue;
+    dfs(next);
+  }
+}
+```
+- 인접 행렬로 구현
+```
+void dfx(int x) {
+  checked[x] = true;
+  cout << x << ' ';
+  for (int i = 0; i < MAX; i++) {
+    if (connected[x][i] && checked[i]) dfs(i);
+  }
+}
+```
+
+### 2. BFS 너비 우선 탐색 (Breadth First Search)
+- 현재 정점에서 인접한 정점들을 우선적으로 탐색하는 방식
+- 방문체크를 할 배열과 방문순서를 관리할 큐가 필요
+
+- 인접 리스트로 구현
+```
+void bfs(int x) {
+  queue<int> q;
+  q.push(x);
+  checked[x] = true;
+  while (q.size()) {
+    int temp = q.front();
+    cout << temp << ' ';
+    q.pop();
+    for (int next : v[temp]) {
       if (checked[next]) continue;
-      dfs(next);
+      q.push(next);
+      checked[next] = true;
     }
   }
-  ```
-  - 인접 행렬로 구현
-  ```
-  void dfx(int x) {
-    checked[x] = true;
-    cout << x << ' ';
+}
+```
+- 인접 행렬로 구현
+```
+void bfs(int x) {
+  queue<int> q;
+  q.push(x);
+  checked[x] = true;
+  while (q.size()) {
+    int temp = q.front();
+    cout << temp << ' ';
+    q.pop();
     for (int i = 0; i < MAX; i++) {
-      if (connected[x][i] && checked[i]) dfs(i);
-    }
-  }
-  ```
-
-  ### 2. BFS 너비 우선 탐색 (Breadth First Search)
-  - 현재 정점에서 인접한 정점들을 우선적으로 탐색하는 방식
-  - 방문체크를 할 배열과 방문순서를 관리할 큐가 필요
-
-  - 인접 리스트로 구현
-  ```
-  void bfs(int x) {
-    queue<int> q;
-    q.push(x);
-    checked[x] = true;
-    while (q.size()) {
-      int temp = q.front();
-      cout << temp << ' ';
-      q.pop();
-      for (int next : v[temp]) {
-        if (checked[next]) continue;
-        q.push(next);
-        checked[next] = true;
+      if (connected[temp][i] && !checked[i]) {
+        q.push(i);
+        checked[i] = true;
       }
     }
   }
-  ```
-  - 인접 행렬로 구현
-  ```
-  void bfs(int x) {
-    queue<int> q;
-    q.push(x);
-    checked[x] = true;
-    while (q.size()) {
-      int temp = q.front();
-      cout << temp << ' ';
-      q.pop();
-      for (int i = 0; i < MAX; i++) {
-        if (connected[temp][i] && !checked[i]) {
-          q.push(i);
-          checked[i] = true;
-        }
-      }
-    }
-  }
-  ```
-  **dfs로 탐색을 하게 되면, 최악의 경우 모든 경우를 전부 탐색해봐야 한다.<br> -> 따라서 웬만하면 bfs를 사용하자.**
+}
+```
+**dfs로 탐색을 하게 되면, 최악의 경우 모든 경우를 전부 탐색해봐야 한다.<br> -> 따라서 웬만하면 bfs를 사용하자.**
 
-  ### 👩‍💻boj
-  - 16953 : A → B
+### 👩‍💻boj
+- 16953 : A → B
