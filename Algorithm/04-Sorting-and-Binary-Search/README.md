@@ -5,8 +5,9 @@
 - 정렬되지 않은 리스트의 최솟값을 선택
 - 그 최솟값을 리스트의 맨 앞의 값과 바꾼다.
 - 최솟값이 저장된 index의 다음부터 위 과정을 반복한다.
-시간복잡도 : 최선 O(n^2) | 평균 O(n^2) | 최악 O(n^2) <br>
-공간복잡도 : O(1)
+
+  시간복잡도 : 최선 O(n^2) | 평균 O(n^2) | 최악 O(n^2) <br>
+  공간복잡도 : O(1)
 ```
 void selection_sort() {
   int temp, min_index;
@@ -27,8 +28,9 @@ void selection_sort() {
 - 두 번째 index부터 시작, key 값을 index 값으로 함
 - key 값과 정렬된 앞의 값들과 비교를 한 뒤에 적절한 위치에 삽입
 - index+1 을 한 뒤 위 과정 반복
-시간복잡도 : 최선 O(n) | 평균 O(n^2) | 최악 O(n^2) <br>
-공간복잡도 : O(1)
+
+  시간복잡도 : 최선 O(n) | 평균 O(n^2) | 최악 O(n^2) <br>
+  공간복잡도 : O(1)
 ```
 void insertion_sort() {
   int i, j, key;
@@ -45,8 +47,9 @@ void insertion_sort() {
 - 어떤 index와 index+1을 비교해서 정렬한다.
 - index를 리스트의 개수 -1 까지 진행시킨다.
 - 마지막 index를 제외한 뒤 위 과정을 반복한다.
-시간복잡도 : 최선 O(n^2) | 평균 O(n^2) | 최악 O(n^2) <br>
-공간복잡도 : O(1)
+
+  시간복잡도 : 최선 O(n^2) | 평균 O(n^2) | 최악 O(n^2) <br>
+  공간복잡도 : O(1)
 ```
 void bubble_sort() {
   int i, j, temp;
@@ -65,8 +68,9 @@ void bubble_sort() {
 - 임의의 index를 pivot으로 잡는다.
 - pivot 좌측에는 pivot보다 작은 수, 우측에는 큰 수가 오게끔 배치한다.
 - pivot을 제외한 pivot의 좌측과 우측 두 개의 리스트에 대해서 위 과정을 재귀적으로 반복한다.
-시간복잡도 : 최선 O(nlogn) | 평균 O(nlogn) | 최악 O(n^2) <br>
-공간복잡도 : O(1)
+ 
+  시간복잡도 : 최선 O(nlogn) | 평균 O(nlogn) | 최악 O(n^2) <br>
+  공간복잡도 : O(1)
 ```
 void quick_sort(int low, int high) {
   if (low >= high) return;
@@ -99,8 +103,9 @@ void quick_sort(int low, int high) {
 - 정렬되지 않은 리스트의 크기가 1이 될 때까지 절반으로 잘라 나눈다.
 - 인접한 두 개의 리스트를 정렬하면서 합친다. (각각 리스트는 정렬되어 있다.)
 - 리스트가 모두 합쳐질 때까지 2-3 과정을 반복한다.
-시간복잡도 : 최선 O(nlogn) | 평균 O(nlogn) | 최악 O(nlogn) <br>
-공간복잡도 : O(n)
+
+  시간복잡도 : 최선 O(nlogn) | 평균 O(nlogn) | 최악 O(nlogn) <br>
+  공간복잡도 : O(n)
 ```
 void merge(int low, int mid, int high) {
   int l_idx = low;
@@ -127,6 +132,9 @@ void merge_sort(int low, int high) {
 ```
 ## STL sort 함수
 \#include &lt;algorithm&gt;
+
+시간복잡도 : O(nlogn)
+
 - 기본형 (오름차순)
 ```
 template <class RandomAccessIterator>
@@ -150,6 +158,7 @@ bool compare(struct student a, struct student b) {
   return a.score > b.score;
 }
 ```
+
 
 # 2. 이분(Binary) 탐색
 - **정렬**된 리스트에서 특정한 값의 위치를 찾아내는 알고리즘
