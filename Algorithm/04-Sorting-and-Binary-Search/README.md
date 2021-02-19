@@ -126,7 +126,7 @@ void merge_sort(int low, int high) {
 }
 ```
 ## STL sort 함수
-\#include <algorithm>
+\#include &lt;algorithm&gt;
 - 기본형 (오름차순)
 ```
 template <class RandomAccessIterator>
@@ -168,6 +168,6 @@ int binary_search(int answer) {
   return -1;
 }
 ```
-## problem/
+### 👩‍💻boj
 - 2805 : 나무 자르기
 - 3079 : 입국 심사
