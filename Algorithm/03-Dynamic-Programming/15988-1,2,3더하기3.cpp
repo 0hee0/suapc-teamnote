@@ -1,4 +1,12 @@
-// 1, 2, 3 ���ϱ� 3
+// 1, 2, 3 더하기 3
+/*
+# SOLUTION
+
+재귀 함수로 풀면 메모리 초과 발생. 반복문으로 해야 함.
+	- 재귀 함수는 반복적으로 자기 자신을 부르면서 매번 스택에 추가 공간을 사용
+	- 따라서 메모리의 제한이 있는 한 stack overflow가 발생
+*/
+
 #include <iostream>
 using namespace std;
 #define MAX 1000000
@@ -8,6 +16,7 @@ using namespace std;
 int T;
 long long d[MAX + 1];
 
+// 사용 X
 long long dp(int n) {
 	if (n == 1) return 1;
 	if (n == 2) return 2;
