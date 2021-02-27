@@ -10,6 +10,9 @@
   A*(B+C) -> ABC+* <br>
   A*B+C -> AB*C+ <br>
   A+B*C+D*E+G -> ABC*+DE*G+
+  
+## 틀렸습니다
+- 경계값을 넣어서 범위 확인을 해보자. e.g. long long을 사용해야하는 데 int를 사용한 경우
 ## 기타 팁
 - 별다른 조건 없이 입력을 끝내고 싶다면 CTRL+Z
 - 배열 index<br>
