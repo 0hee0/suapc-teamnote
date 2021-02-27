@@ -1,5 +1,5 @@
 # STL
-## upper_bound & lower_bound
+## 1. upper_bound & lower_bound
 - upper_bound : 찾고자 하는 값을 최초로 초과하는 값 index의 주소를 반환
 ```
 template <class FowardIterator, class T>
@@ -27,7 +27,7 @@ int main() {
   cout << index '\n';    // 4 (7 초과하는 최초 값 : 8)
 }
 ```
-## map & set
+## 2. map & set
 - key는 중복될 수 없음
 - key를 기준으로 정렬된 상태
 - 균형 이진탐색트리 구조
@@ -39,7 +39,7 @@ int main() {
 - map, set은 선형 자료구조가 아니기 때문에 iterator를 통해 순회
 - iterator를 역참조하여 값에 접근할 수 있음
 
-### 1. map : 키(key) - 값(value) 구조
+### 2-1. map : 키(key) - 값(value) 구조
 map의 원소의 first에는 key, second에는 value가 저장되어 있음
 ```
 #include <map>
@@ -98,7 +98,7 @@ for (auto iter = mp.begin(); iter != mp.end(); iter++)
     ```
     cout << mp.size() << '\n';
     ```
-### 2. set : 키(key)값만 저장
+### 2-2. set : 키(key)값만 저장
 set은 중복되지 않는 값들이 오름차순으로 정렬되어 저장된 컨테이너
 ```
 #include <set>
@@ -141,4 +141,4 @@ for (auto iter = st.begin(); iter != st.end(); iter++)
     ```
     cout << st.size() << '\n';
     ```
-
+## 3. 
